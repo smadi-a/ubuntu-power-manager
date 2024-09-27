@@ -1,0 +1,1 @@
+SUBSYSTEMS=="power_supply", ACTION=="change", RUN+="/usr/local/bin/power_events"

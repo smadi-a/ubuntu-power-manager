@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Check power supply status
+power_status=$(cat /sys/class/power_supply/AC/online)
+
+# Check if charger is connected
+if [[ $power_status -eq 1 ]]; then
+sudo light -s sysfs/backlight/intel_backlight -S 100
+powerprofilesctl set performance
+else
+sudo light -s sysfs/backlight/intel_backlight -S 60
+powerprofilesctl set balanced
+fi
